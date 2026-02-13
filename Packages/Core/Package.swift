@@ -45,6 +45,6 @@ let package = Package(
 
         // Analytics
         .target(name: "AnalyticsAPI"),
-        .target(name: "AnalyticsImpl", dependencies: ["AnalyticsAPI", "CommonAPI", "CommonImpl", .product(name: "Factory", package: "Factory")]),
+        .target(name: "AnalyticsImpl", dependencies: ["AnalyticsAPI", "CommonAPI", .product(name: "Factory", package: "Factory")]),
     ]
 )

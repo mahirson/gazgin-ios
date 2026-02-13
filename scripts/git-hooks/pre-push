@@ -69,5 +69,16 @@ echo "✅ SwiftLint passed."
 
 # --- Add future checks here ---
 
+# Dependency Check
+echo "🔍 Running dependency check..."
+SCRIPT_DIR=$(dirname "$0")
+REPO_ROOT=$(git rev-parse --show-toplevel)
+swift "$REPO_ROOT/scripts/check_dependencies.swift"
+if [ $? -ne 0 ]; then
+    echo "❌ Dependency check failed."
+    exit 1
+fi
+echo "✅ Dependency check passed."
+
 echo "✅ All pre-push checks passed."
 exit 0

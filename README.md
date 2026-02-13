@@ -49,6 +49,14 @@ Uses [SwiftLint](https://github.com/realm/SwiftLint) with a relaxed `.swiftlint.
 A **pre-push git hook** runs `swiftlint --fix` automatically before every push:
 - **On `dev` branch** — lints all Swift files
 - **On feature branches** — lints only files changed compared to `dev`
+- **On feature branches** — lints only files changed compared to `dev`
+
+## Build Logic & Architecture Rules
+
+### Dependency Rules
+- **Strict Implementation Isolation**: Implementation targets (`-Impl`) cannot depend on other implementation targets.
+- Always depend on the `-API` target instead.
+- **Enforcement**: A pre-push hook runs `scripts/check_dependencies.swift` to verify this rule. The push will be rejected if violations are found.
 
 ## Getting Started
 

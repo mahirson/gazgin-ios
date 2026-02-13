@@ -21,7 +21,7 @@ let package = Package(
         ]),
         .target(name: "EntityImpl", dependencies: [
             "EntityAPI",
-            .product(name: "NetworkImpl", package: "Core"),
+            .product(name: "NetworkAPI", package: "Core"),
             .product(name: "DIAPI", package: "Core"),
         ]),
 

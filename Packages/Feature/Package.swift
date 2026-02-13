@@ -21,7 +21,6 @@ let package = Package(
         .target(name: "HomeImpl", dependencies: [
             "HomeAPI",
             .product(name: "DesignSystemAPI", package: "Core"),
-            .product(name: "DesignSystemImpl", package: "Core"),
             .product(name: "CommonAPI", package: "Core"),
             .product(name: "AnalyticsAPI", package: "Core"),
             .product(name: "DIAPI", package: "Core"),
@@ -33,7 +32,6 @@ let package = Package(
         .target(name: "ProfileImpl", dependencies: [
             "ProfileAPI",
             .product(name: "DesignSystemAPI", package: "Core"),
-            .product(name: "DesignSystemImpl", package: "Core"),
             .product(name: "CommonAPI", package: "Core"),
             .product(name: "AnalyticsAPI", package: "Core"),
             .product(name: "DIAPI", package: "Core"),
