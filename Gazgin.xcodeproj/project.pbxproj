@@ -52,6 +52,18 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				AA000001AAAA000100000001 /* HomeImpl in Frameworks */,
+				AA000002AAAA000200000002 /* ProfileImpl in Frameworks */,
+				AA000003AAAA000300000003 /* DIImpl in Frameworks */,
+				AA000004AAAA000400000004 /* NetworkImpl in Frameworks */,
+				AA000005AAAA000500000005 /* DesignSystemImpl in Frameworks */,
+				AA000006AAAA000600000006 /* CommonImpl in Frameworks */,
+				AA000007AAAA000700000007 /* ComponentsImpl in Frameworks */,
+				AA000008AAAA000800000008 /* AnalyticsImpl in Frameworks */,
+				AA000009AAAA000900000009 /* EntityImpl in Frameworks */,
+				AA00000AAAAA000A0000000A /* DatabaseImpl in Frameworks */,
+				AA00000BAAAA000B0000000B /* ReposImpl in Frameworks */,
+				AA00000CAAAA000C0000000C /* DTOImpl in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -112,6 +124,18 @@
 			);
 			name = Gazgin;
 			packageProductDependencies = (
+				BB000001BBBB000100000001 /* HomeImpl */,
+				BB000002BBBB000200000002 /* ProfileImpl */,
+				BB000003BBBB000300000003 /* DIImpl */,
+				BB000004BBBB000400000004 /* NetworkImpl */,
+				BB000005BBBB000500000005 /* DesignSystemImpl */,
+				BB000006BBBB000600000006 /* CommonImpl */,
+				BB000007BBBB000700000007 /* ComponentsImpl */,
+				BB000008BBBB000800000008 /* AnalyticsImpl */,
+				BB000009BBBB000900000009 /* EntityImpl */,
+				BB00000ABBBB000A0000000A /* DatabaseImpl */,
+				BB00000BBBBB000B0000000B /* ReposImpl */,
+				BB00000CBBBB000C0000000C /* DTOImpl */,
 			);
 			productName = Gazgin;
 			productReference = 84E0358E2F3EB29900B73816 /* Gazgin.app */;
@@ -195,6 +219,12 @@
 			);
 			mainGroup = 84E035852F3EB29900B73816;
 			minimizedProjectReferenceProxies = 1;
+			packageReferences = (
+				CC000001CCCC000100000001 /* XCLocalSwiftPackageReference "Packages/Core" */,
+				CC000002CCCC000200000002 /* XCLocalSwiftPackageReference "Packages/Data" */,
+				CC000003CCCC000300000003 /* XCLocalSwiftPackageReference "Packages/Domain" */,
+				CC000004CCCC000400000004 /* XCLocalSwiftPackageReference "Packages/Feature" */,
+			);
 			preferredProjectObjectVersion = 77;
 			productRefGroup = 84E0358F2F3EB29900B73816 /* Products */;
 			projectDirPath = "";
@@ -578,6 +608,76 @@
 			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
+
+/* Begin XCLocalSwiftPackageReference section */
+		CC000001CCCC000100000001 /* XCLocalSwiftPackageReference "Packages/Core" */ = {
+			isa = XCLocalSwiftPackageReference;
+			relativePath = Packages/Core;
+		};
+		CC000002CCCC000200000002 /* XCLocalSwiftPackageReference "Packages/Data" */ = {
+			isa = XCLocalSwiftPackageReference;
+			relativePath = Packages/Data;
+		};
+		CC000003CCCC000300000003 /* XCLocalSwiftPackageReference "Packages/Domain" */ = {
+			isa = XCLocalSwiftPackageReference;
+			relativePath = Packages/Domain;
+		};
+		CC000004CCCC000400000004 /* XCLocalSwiftPackageReference "Packages/Feature" */ = {
+			isa = XCLocalSwiftPackageReference;
+			relativePath = Packages/Feature;
+		};
+/* End XCLocalSwiftPackageReference section */
+
+/* Begin XCSwiftPackageProductDependency section */
+		BB000001BBBB000100000001 /* HomeImpl */ = {
+			isa = XCSwiftPackageProductDependency;
+			productName = HomeImpl;
+		};
+		BB000002BBBB000200000002 /* ProfileImpl */ = {
+			isa = XCSwiftPackageProductDependency;
+			productName = ProfileImpl;
+		};
+		BB000003BBBB000300000003 /* DIImpl */ = {
+			isa = XCSwiftPackageProductDependency;
+			productName = DIImpl;
+		};
+		BB000004BBBB000400000004 /* NetworkImpl */ = {
+			isa = XCSwiftPackageProductDependency;
+			productName = NetworkImpl;
+		};
+		BB000005BBBB000500000005 /* DesignSystemImpl */ = {
+			isa = XCSwiftPackageProductDependency;
+			productName = DesignSystemImpl;
+		};
+		BB000006BBBB000600000006 /* CommonImpl */ = {
+			isa = XCSwiftPackageProductDependency;
+			productName = CommonImpl;
+		};
+		BB000007BBBB000700000007 /* ComponentsImpl */ = {
+			isa = XCSwiftPackageProductDependency;
+			productName = ComponentsImpl;
+		};
+		BB000008BBBB000800000008 /* AnalyticsImpl */ = {
+			isa = XCSwiftPackageProductDependency;
+			productName = AnalyticsImpl;
+		};
+		BB000009BBBB000900000009 /* EntityImpl */ = {
+			isa = XCSwiftPackageProductDependency;
+			productName = EntityImpl;
+		};
+		BB00000ABBBB000A0000000A /* DatabaseImpl */ = {
+			isa = XCSwiftPackageProductDependency;
+			productName = DatabaseImpl;
+		};
+		BB00000BBBBB000B0000000B /* ReposImpl */ = {
+			isa = XCSwiftPackageProductDependency;
+			productName = ReposImpl;
+		};
+		BB00000CBBBB000C0000000C /* DTOImpl */ = {
+			isa = XCSwiftPackageProductDependency;
+			productName = DTOImpl;
+		};
+/* End XCSwiftPackageProductDependency section */
 	};
 	rootObject = 84E035862F3EB29900B73816 /* Project object */;
 }

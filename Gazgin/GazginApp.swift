@@ -1,32 +1,28 @@
-//
-//  GazginApp.swift
-//  Gazgin
-//
-//  Created by Nijat Ayyublu on 13.02.26.
-//
-
 import SwiftUI
 import SwiftData
+import HomeImpl
+import ProfileImpl
+import DIImpl
 
 @main
 struct GazginApp: App {
-    var sharedModelContainer: ModelContainer = {
-        let schema = Schema([
-            Item.self,
-        ])
-        let modelConfiguration = ModelConfiguration(schema: schema, isStoredInMemoryOnly: false)
-
-        do {
-            return try ModelContainer(for: schema, configurations: [modelConfiguration])
-        } catch {
-            fatalError("Could not create ModelContainer: \(error)")
-        }
-    }()
+    init() {
+        DISetup.configure()
+    }
 
     var body: some Scene {
         WindowGroup {
-            ContentView()
+            TabView {
+                HomeView()
+                    .tabItem {
+                        Label("Home", systemImage: "house.fill")
+                    }
+
+                ProfileView()
+                    .tabItem {
+                        Label("Profile", systemImage: "person.fill")
+                    }
+            }
         }
-        .modelContainer(sharedModelContainer)
     }
 }
