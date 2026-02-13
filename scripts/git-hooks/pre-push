@@ -1,0 +1,73 @@
+#!/bin/sh
+#
+# Pre-push hook for Gazgin iOS
+# Runs SwiftLint --fix on changed Swift files before pushing.
+# On dev branch: checks all Swift files.
+# On other branches: checks only files changed compared to dev.
+#
+
+echo "🔍 Running pre-push checks..."
+
+# Check SwiftLint is installed
+if ! command -v swiftlint > /dev/null 2>&1; then
+    echo "❌ SwiftLint not found. Install it with: brew install swiftlint"
+    exit 1
+fi
+
+CURRENT_BRANCH=$(git rev-parse --abbrev-ref HEAD)
+
+if [ "$CURRENT_BRANCH" = "dev" ]; then
+    echo "▶ On dev branch — linting all Swift files..."
+    swiftlint lint --fix --quiet 2>&1
+    swiftlint lint --quiet 2>&1
+else
+    echo "▶ Linting changed Swift files (compared to dev)..."
+
+    CHANGED_FILES=$(git diff --name-only --diff-filter=d origin/dev... -- '*.swift' 2>/dev/null)
+
+    if [ -z "$CHANGED_FILES" ]; then
+        CHANGED_FILES=$(git diff --name-only --diff-filter=d dev... -- '*.swift' 2>/dev/null)
+    fi
+
+    if [ -z "$CHANGED_FILES" ]; then
+        echo "✅ No Swift files changed — skipping."
+        exit 0
+    fi
+
+    echo "$CHANGED_FILES" | while read -r file; do
+        if [ -f "$file" ]; then
+            swiftlint lint --fix --quiet --path "$file" 2>&1
+        fi
+    done
+
+    LINT_RESULT=0
+    echo "$CHANGED_FILES" | while read -r file; do
+        if [ -f "$file" ]; then
+            swiftlint lint --quiet --path "$file" 2>&1
+            if [ $? -ne 0 ]; then
+                LINT_RESULT=1
+            fi
+        fi
+    done
+fi
+
+LINT_EXIT=$?
+if [ $LINT_EXIT -ne 0 ]; then
+    echo "❌ SwiftLint found issues that could not be auto-fixed. Please fix them manually."
+    exit 1
+fi
+
+# Stage any auto-formatted changes
+git diff --quiet
+if [ $? -ne 0 ]; then
+    echo "⚠️  SwiftLint auto-fixed some files. Review and commit the changes before pushing."
+    git diff --stat
+    exit 1
+fi
+
+echo "✅ SwiftLint passed."
+
+# --- Add future checks here ---
+
+echo "✅ All pre-push checks passed."
+exit 0

@@ -1,0 +1,31 @@
+# SwiftLint configuration — relaxed rules for Gazgin iOS
+
+disabled_rules:
+  - trailing_comma
+  - force_cast
+  - force_try
+  - force_unwrapping
+  - cyclomatic_complexity
+  - function_body_length
+  - file_length
+  - type_body_length
+  - line_length
+  - identifier_name
+  - nesting
+  - large_tuple
+  - opening_brace
+  - closure_parameter_position
+  - todo
+  - unused_optional_binding
+
+opt_in_rules:
+  - empty_count
+  - closure_spacing
+
+included:
+  - Gazgin
+  - Packages
+
+excluded:
+  - .build
+  - DerivedData
