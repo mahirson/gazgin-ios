@@ -14,8 +14,8 @@ public struct ProfileView: View {
     public var body: some View {
         VStack {
             Text("Profile")
-                .font(GazginTypography.titleLarge)
-                .foregroundColor(GazginColors.primary)
+                .font(GazginTheme.typeface.h1.bold)
+                .foregroundColor(GazginColors.primaryBase)
         }
         .frame(maxWidth: .infinity, maxHeight: .infinity)
         .gazginTheme()

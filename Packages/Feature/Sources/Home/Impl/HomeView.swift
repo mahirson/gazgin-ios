@@ -14,8 +14,8 @@ public struct HomeView: View {
     public var body: some View {
         VStack {
             Text("Home")
-                .font(GazginTypography.titleLarge)
-                .foregroundColor(GazginColors.primary)
+                .font(GazginTheme.typeface.h1.bold)
+                .foregroundColor(GazginColors.primaryBase)
         }
         .frame(maxWidth: .infinity, maxHeight: .infinity)
         .gazginTheme()
