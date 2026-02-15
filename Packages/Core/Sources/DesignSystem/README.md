@@ -9,6 +9,12 @@ Add `DesignSystem` to your target's dependencies:
 .target(name: "MyFeature", dependencies: ["DesignSystem"])
 ```
 
+### Component Documentation
+
+| Component | Guide |
+|---|---|
+| Input Fields | [Input Fields — Usage & Examples](INPUT_FIELDS.md) |
+
 ---
 
 ## Colors

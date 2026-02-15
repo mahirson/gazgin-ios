@@ -24,6 +24,9 @@ public enum GazginTheme {
 
     /// Typography is the same for light and dark modes.
     public static let typeface: GazginTypographyScheme = gazginTypography
+
+    /// Dimension tokens are the same for light and dark modes.
+    public static let dimens: GazginDimensions = gazginDimensions
 }
 
 // MARK: - Environment Key
