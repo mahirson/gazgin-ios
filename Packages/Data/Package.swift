@@ -6,30 +6,22 @@ let package = Package(
     name: "Data",
     platforms: [.iOS(.v17)],
     products: [
-        .library(name: "EntityAPI", targets: ["EntityAPI"]),
-        .library(name: "EntityImpl", targets: ["EntityImpl"]),
-        .library(name: "DatabaseAPI", targets: ["DatabaseAPI"]),
-        .library(name: "DatabaseImpl", targets: ["DatabaseImpl"]),
+        .library(name: "Entity", targets: ["Entity"]),
+        .library(name: "Database", targets: ["Database"]),
     ],
     dependencies: [
         .package(path: "../Core"),
     ],
     targets: [
         // Entity
-        .target(name: "EntityAPI", dependencies: [
-            .product(name: "NetworkAPI", package: "Core"),
-        ]),
-        .target(name: "EntityImpl", dependencies: [
-            "EntityAPI",
-            .product(name: "NetworkAPI", package: "Core"),
-            .product(name: "DIAPI", package: "Core"),
-        ]),
+        .target(name: "Entity", dependencies: [
+            .product(name: "Network", package: "Core"),
+            .product(name: "DI", package: "Core"),
+        ], path: "Sources/Entity"),
 
         // Database
-        .target(name: "DatabaseAPI"),
-        .target(name: "DatabaseImpl", dependencies: [
-            "DatabaseAPI",
-            .product(name: "DIAPI", package: "Core"),
-        ]),
+        .target(name: "Database", dependencies: [
+            .product(name: "DI", package: "Core"),
+        ], path: "Sources/Database"),
     ]
 )

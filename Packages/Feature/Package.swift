@@ -6,10 +6,8 @@ let package = Package(
     name: "Feature",
     platforms: [.iOS(.v17)],
     products: [
-        .library(name: "HomeAPI", targets: ["HomeAPI"]),
-        .library(name: "HomeImpl", targets: ["HomeImpl"]),
-        .library(name: "ProfileAPI", targets: ["ProfileAPI"]),
-        .library(name: "ProfileImpl", targets: ["ProfileImpl"]),
+        .library(name: "Home", targets: ["Home"]),
+        .library(name: "Profile", targets: ["Profile"]),
     ],
     dependencies: [
         .package(path: "../Core"),
@@ -17,25 +15,23 @@ let package = Package(
     ],
     targets: [
         // Home
-        .target(name: "HomeAPI"),
-        .target(name: "HomeImpl", dependencies: [
-            "HomeAPI",
-            .product(name: "DesignSystemAPI", package: "Core"),
-            .product(name: "CommonAPI", package: "Core"),
-            .product(name: "AnalyticsAPI", package: "Core"),
-            .product(name: "DIAPI", package: "Core"),
-            .product(name: "ReposAPI", package: "Domain"),
-        ]),
+        .target(name: "Home", dependencies: [
+            .product(name: "DesignSystem", package: "Core"),
+            .product(name: "Common", package: "Core"),
+            .product(name: "Analytics", package: "Core"),
+            .product(name: "DI", package: "Core"),
+            .product(name: "Navigation", package: "Core"),
+            .product(name: "Repos", package: "Domain"),
+        ], path: "Sources/Home"),
 
         // Profile
-        .target(name: "ProfileAPI"),
-        .target(name: "ProfileImpl", dependencies: [
-            "ProfileAPI",
-            .product(name: "DesignSystemAPI", package: "Core"),
-            .product(name: "CommonAPI", package: "Core"),
-            .product(name: "AnalyticsAPI", package: "Core"),
-            .product(name: "DIAPI", package: "Core"),
-            .product(name: "ReposAPI", package: "Domain"),
-        ]),
+        .target(name: "Profile", dependencies: [
+            .product(name: "DesignSystem", package: "Core"),
+            .product(name: "Common", package: "Core"),
+            .product(name: "Analytics", package: "Core"),
+            .product(name: "DI", package: "Core"),
+            .product(name: "Navigation", package: "Core"),
+            .product(name: "Repos", package: "Domain"),
+        ], path: "Sources/Profile"),
     ]
 )

@@ -6,45 +6,37 @@ let package = Package(
     name: "Core",
     platforms: [.iOS(.v17)],
     products: [
-        .library(name: "NetworkAPI", targets: ["NetworkAPI"]),
-        .library(name: "NetworkImpl", targets: ["NetworkImpl"]),
-        .library(name: "DesignSystemAPI", targets: ["DesignSystemAPI"]),
-        .library(name: "DesignSystemImpl", targets: ["DesignSystemImpl"]),
-        .library(name: "CommonAPI", targets: ["CommonAPI"]),
-        .library(name: "CommonImpl", targets: ["CommonImpl"]),
-        .library(name: "ComponentsAPI", targets: ["ComponentsAPI"]),
-        .library(name: "ComponentsImpl", targets: ["ComponentsImpl"]),
-        .library(name: "DIAPI", targets: ["DIAPI"]),
-        .library(name: "DIImpl", targets: ["DIImpl"]),
-        .library(name: "AnalyticsAPI", targets: ["AnalyticsAPI"]),
-        .library(name: "AnalyticsImpl", targets: ["AnalyticsImpl"]),
+        .library(name: "Network", targets: ["Network"]),
+        .library(name: "DesignSystem", targets: ["DesignSystem"]),
+        .library(name: "Common", targets: ["Common"]),
+        .library(name: "Components", targets: ["Components"]),
+        .library(name: "DI", targets: ["DI"]),
+        .library(name: "Analytics", targets: ["Analytics"]),
+        .library(name: "Navigation", targets: ["Navigation"]),
     ],
     dependencies: [
         .package(url: "https://github.com/hmlongco/Factory.git", from: "2.4.0"),
     ],
     targets: [
         // Network
-        .target(name: "NetworkAPI"),
-        .target(name: "NetworkImpl", dependencies: ["NetworkAPI", "DIAPI", .product(name: "Factory", package: "Factory")]),
+        .target(name: "Network", dependencies: ["DI", .product(name: "Factory", package: "Factory")], path: "Sources/Network"),
 
         // Design System
-        .target(name: "DesignSystemAPI"),
-        .target(name: "DesignSystemImpl", dependencies: ["DesignSystemAPI"]),
+        .target(name: "DesignSystem", path: "Sources/DesignSystem"),
 
         // Common
-        .target(name: "CommonAPI"),
-        .target(name: "CommonImpl", dependencies: ["CommonAPI", .product(name: "Factory", package: "Factory")]),
+        .target(name: "Common", dependencies: [.product(name: "Factory", package: "Factory")], path: "Sources/Common"),
 
         // Components
-        .target(name: "ComponentsAPI"),
-        .target(name: "ComponentsImpl", dependencies: ["ComponentsAPI"]),
+        .target(name: "Components", path: "Sources/Components"),
 
         // DI
-        .target(name: "DIAPI", dependencies: [.product(name: "Factory", package: "Factory")]),
-        .target(name: "DIImpl", dependencies: ["DIAPI", .product(name: "Factory", package: "Factory")]),
+        .target(name: "DI", dependencies: [.product(name: "Factory", package: "Factory"), "Navigation"], path: "Sources/DI"),
 
         // Analytics
-        .target(name: "AnalyticsAPI"),
-        .target(name: "AnalyticsImpl", dependencies: ["AnalyticsAPI", "CommonAPI", .product(name: "Factory", package: "Factory")]),
+        .target(name: "Analytics", dependencies: ["Common", .product(name: "Factory", package: "Factory")], path: "Sources/Analytics"),
+
+        // Navigation
+        .target(name: "Navigation", path: "Sources/Navigation"),
     ]
 )

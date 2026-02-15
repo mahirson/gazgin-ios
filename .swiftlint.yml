@@ -28,4 +28,5 @@ included:
 
 excluded:
   - .build
+  - "**/.build"
   - DerivedData

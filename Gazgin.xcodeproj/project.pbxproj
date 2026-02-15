@@ -52,18 +52,18 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				AA000001AAAA000100000001 /* HomeImpl in Frameworks */,
-				AA000002AAAA000200000002 /* ProfileImpl in Frameworks */,
-				AA000003AAAA000300000003 /* DIImpl in Frameworks */,
-				AA000004AAAA000400000004 /* NetworkImpl in Frameworks */,
-				AA000005AAAA000500000005 /* DesignSystemImpl in Frameworks */,
-				AA000006AAAA000600000006 /* CommonImpl in Frameworks */,
-				AA000007AAAA000700000007 /* ComponentsImpl in Frameworks */,
-				AA000008AAAA000800000008 /* AnalyticsImpl in Frameworks */,
-				AA000009AAAA000900000009 /* EntityImpl in Frameworks */,
-				AA00000AAAAA000A0000000A /* DatabaseImpl in Frameworks */,
-				AA00000BAAAA000B0000000B /* ReposImpl in Frameworks */,
-				AA00000CAAAA000C0000000C /* DTOImpl in Frameworks */,
+				AA000001AAAA000100000001 /* Home in Frameworks */,
+				AA000002AAAA000200000002 /* Profile in Frameworks */,
+				AA000003AAAA000300000003 /* DI in Frameworks */,
+				AA000004AAAA000400000004 /* Network in Frameworks */,
+				AA000005AAAA000500000005 /* DesignSystem in Frameworks */,
+				AA000006AAAA000600000006 /* Common in Frameworks */,
+				AA000007AAAA000700000007 /* Components in Frameworks */,
+				AA000008AAAA000800000008 /* Analytics in Frameworks */,
+				AA000009AAAA000900000009 /* Entity in Frameworks */,
+				AA00000AAAAA000A0000000A /* Database in Frameworks */,
+				AA00000BAAAA000B0000000B /* Repos in Frameworks */,
+				AA00000CAAAA000C0000000C /* DTO in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -124,18 +124,18 @@
 			);
 			name = Gazgin;
 			packageProductDependencies = (
-				BB000001BBBB000100000001 /* HomeImpl */,
-				BB000002BBBB000200000002 /* ProfileImpl */,
-				BB000003BBBB000300000003 /* DIImpl */,
-				BB000004BBBB000400000004 /* NetworkImpl */,
-				BB000005BBBB000500000005 /* DesignSystemImpl */,
-				BB000006BBBB000600000006 /* CommonImpl */,
-				BB000007BBBB000700000007 /* ComponentsImpl */,
-				BB000008BBBB000800000008 /* AnalyticsImpl */,
-				BB000009BBBB000900000009 /* EntityImpl */,
-				BB00000ABBBB000A0000000A /* DatabaseImpl */,
-				BB00000BBBBB000B0000000B /* ReposImpl */,
-				BB00000CBBBB000C0000000C /* DTOImpl */,
+				BB000001BBBB000100000001 /* Home */,
+				BB000002BBBB000200000002 /* Profile */,
+				BB000003BBBB000300000003 /* DI */,
+				BB000004BBBB000400000004 /* Network */,
+				BB000005BBBB000500000005 /* DesignSystem */,
+				BB000006BBBB000600000006 /* Common */,
+				BB000007BBBB000700000007 /* Components */,
+				BB000008BBBB000800000008 /* Analytics */,
+				BB000009BBBB000900000009 /* Entity */,
+				BB00000ABBBB000A0000000A /* Database */,
+				BB00000BBBBB000B0000000B /* Repos */,
+				BB00000CBBBB000C0000000C /* DTO */,
 			);
 			productName = Gazgin;
 			productReference = 84E0358E2F3EB29900B73816 /* Gazgin.app */;
@@ -629,53 +629,53 @@
 /* End XCLocalSwiftPackageReference section */
 
 /* Begin XCSwiftPackageProductDependency section */
-		BB000001BBBB000100000001 /* HomeImpl */ = {
+		BB000001BBBB000100000001 /* Home */ = {
 			isa = XCSwiftPackageProductDependency;
-			productName = HomeImpl;
+			productName = Home;
 		};
-		BB000002BBBB000200000002 /* ProfileImpl */ = {
+		BB000002BBBB000200000002 /* Profile */ = {
 			isa = XCSwiftPackageProductDependency;
-			productName = ProfileImpl;
+			productName = Profile;
 		};
-		BB000003BBBB000300000003 /* DIImpl */ = {
+		BB000003BBBB000300000003 /* DI */ = {
 			isa = XCSwiftPackageProductDependency;
-			productName = DIImpl;
+			productName = DI;
 		};
-		BB000004BBBB000400000004 /* NetworkImpl */ = {
+		BB000004BBBB000400000004 /* Network */ = {
 			isa = XCSwiftPackageProductDependency;
-			productName = NetworkImpl;
+			productName = Network;
 		};
-		BB000005BBBB000500000005 /* DesignSystemImpl */ = {
+		BB000005BBBB000500000005 /* DesignSystem */ = {
 			isa = XCSwiftPackageProductDependency;
-			productName = DesignSystemImpl;
+			productName = DesignSystem;
 		};
-		BB000006BBBB000600000006 /* CommonImpl */ = {
+		BB000006BBBB000600000006 /* Common */ = {
 			isa = XCSwiftPackageProductDependency;
-			productName = CommonImpl;
+			productName = Common;
 		};
-		BB000007BBBB000700000007 /* ComponentsImpl */ = {
+		BB000007BBBB000700000007 /* Components */ = {
 			isa = XCSwiftPackageProductDependency;
-			productName = ComponentsImpl;
+			productName = Components;
 		};
-		BB000008BBBB000800000008 /* AnalyticsImpl */ = {
+		BB000008BBBB000800000008 /* Analytics */ = {
 			isa = XCSwiftPackageProductDependency;
-			productName = AnalyticsImpl;
+			productName = Analytics;
 		};
-		BB000009BBBB000900000009 /* EntityImpl */ = {
+		BB000009BBBB000900000009 /* Entity */ = {
 			isa = XCSwiftPackageProductDependency;
-			productName = EntityImpl;
+			productName = Entity;
 		};
-		BB00000ABBBB000A0000000A /* DatabaseImpl */ = {
+		BB00000ABBBB000A0000000A /* Database */ = {
 			isa = XCSwiftPackageProductDependency;
-			productName = DatabaseImpl;
+			productName = Database;
 		};
-		BB00000BBBBB000B0000000B /* ReposImpl */ = {
+		BB00000BBBBB000B0000000B /* Repos */ = {
 			isa = XCSwiftPackageProductDependency;
-			productName = ReposImpl;
+			productName = Repos;
 		};
-		BB00000CBBBB000C0000000C /* DTOImpl */ = {
+		BB00000CBBBB000C0000000C /* DTO */ = {
 			isa = XCSwiftPackageProductDependency;
-			productName = DTOImpl;
+			productName = DTO;
 		};
 /* End XCSwiftPackageProductDependency section */
 	};

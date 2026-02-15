@@ -6,10 +6,8 @@ let package = Package(
     name: "Domain",
     platforms: [.iOS(.v17)],
     products: [
-        .library(name: "ReposAPI", targets: ["ReposAPI"]),
-        .library(name: "ReposImpl", targets: ["ReposImpl"]),
-        .library(name: "DTOAPI", targets: ["DTOAPI"]),
-        .library(name: "DTOImpl", targets: ["DTOImpl"]),
+        .library(name: "Repos", targets: ["Repos"]),
+        .library(name: "DTO", targets: ["DTO"]),
     ],
     dependencies: [
         .package(path: "../Core"),
@@ -17,20 +15,15 @@ let package = Package(
     ],
     targets: [
         // Repos
-        .target(name: "ReposAPI", dependencies: [
-            .product(name: "CommonAPI", package: "Core"),
-        ]),
-        .target(name: "ReposImpl", dependencies: [
-            "ReposAPI",
-            "DTOAPI",
-            .product(name: "EntityAPI", package: "Data"),
-            .product(name: "DatabaseAPI", package: "Data"),
-            .product(name: "CommonAPI", package: "Core"),
-            .product(name: "DIAPI", package: "Core"),
-        ]),
+        .target(name: "Repos", dependencies: [
+            "DTO",
+            .product(name: "Entity", package: "Data"),
+            .product(name: "Database", package: "Data"),
+            .product(name: "Common", package: "Core"),
+            .product(name: "DI", package: "Core"),
+        ], path: "Sources/Repos"),
 
         // DTO
-        .target(name: "DTOAPI"),
-        .target(name: "DTOImpl", dependencies: ["DTOAPI"]),
+        .target(name: "DTO", path: "Sources/DTO"),
     ]
 )

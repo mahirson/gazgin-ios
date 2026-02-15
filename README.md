@@ -9,37 +9,49 @@ Gazgin travel app for iOS, built with SwiftUI and multi-module architecture usin
 - **DI:** [Factory](https://github.com/hmlongco/Factory) 2.5.3
 - **Build:** Xcode 26.2, SPM local packages
 
+### Navigation
+Navigation is decoupled using the `FeatureEntry` protocol and **Factory** DI.
+- **Core Navigation**: `Core/Navigation` defines `FeatureEntry`.
+- **Feature Implementation**: Features implement `FeatureEntry` and register themselves in the DI container.
+- **App Module**: `GazginApp` injects `FeatureEntry` factories to construct the UI dynamically.
+
 ## Architecture
 
-Multi-module architecture with **API/Impl target separation** per module. API targets expose protocols, Impl targets contain implementations.
+Multi-module architecture with **API/Impl folder separation** within each module. Each module is a single SPM target containing `API/` (protocols, interfaces) and `Impl/` (implementations) subdirectories.
 
 ```
 Gazgin/                              ← Xcode app target
 Packages/
-├── Core/                            ← SPM package (12 targets)
-│   ├── NetworkAPI     | NetworkImpl          ← URLSession networking
-│   ├── DesignSystemAPI | DesignSystemImpl    ← Color/font tokens, theme
-│   ├── CommonAPI      | CommonImpl          ← Result, Logger
-│   ├── ComponentsAPI  | ComponentsImpl      ← Base view protocols
-│   ├── DIAPI          | DIImpl              ← Factory DI setup
-│   └── AnalyticsAPI   | AnalyticsImpl       ← Event tracking
-├── Data/                            ← SPM package (4 targets)
-│   ├── EntityAPI      | EntityImpl          ← Codable models, services
-│   └── DatabaseAPI    | DatabaseImpl        ← SwiftData models
-├── Domain/                          ← SPM package (4 targets)
-│   ├── ReposAPI       | ReposImpl           ← Repository interfaces
-│   └── DTOAPI         | DTOImpl             ← DTOs, mappers
-└── Feature/                         ← SPM package (4 targets)
-    ├── HomeAPI        | HomeImpl            ← Home feature
-    └── ProfileAPI     | ProfileImpl         ← Profile feature
+├── Core/                            ← SPM package (7 targets)
+│   └── Sources/
+│       ├── Network/                 ← URLSession networking
+│       │   ├── API/                 ← Protocols & models
+│       │   └── Impl/               ← Implementations
+│       ├── DesignSystem/            ← Color/font tokens, theme
+│       ├── Common/                  ← Result, Logger
+│       ├── Components/              ← Base view protocols
+│       ├── DI/                      ← Factory DI setup
+│       ├── Analytics/               ← Event tracking
+│       └── Navigation/              ← FeatureEntry protocol
+├── Data/                            ← SPM package (2 targets)
+│   └── Sources/
+│       ├── Entity/                  ← Codable models, services
+│       └── Database/                ← SwiftData models
+├── Domain/                          ← SPM package (2 targets)
+│   └── Sources/
+│       ├── Repos/                   ← Repository interfaces & impls
+│       └── DTO/                     ← DTOs, mappers
+└── Feature/                         ← SPM package (2 targets)
+    └── Sources/
+        ├── Home/                    ← Home feature
+        └── Profile/                 ← Profile feature
 ```
 
 ### Dependency Flow
 
 ```
-App → Feature:Impl → Domain:API → Data:API
-                   → Core:DesignSystemImpl
-     Domain:Impl   → Data:API + Core:DIAPI
+App → Feature → Domain → Data
+                       → Core
 ```
 
 ## Code Quality
@@ -49,14 +61,12 @@ Uses [SwiftLint](https://github.com/realm/SwiftLint) with a relaxed `.swiftlint.
 A **pre-push git hook** runs `swiftlint --fix` automatically before every push:
 - **On `dev` branch** — lints all Swift files
 - **On feature branches** — lints only files changed compared to `dev`
-- **On feature branches** — lints only files changed compared to `dev`
 
 ## Build Logic & Architecture Rules
 
 ### Dependency Rules
-- **Strict Implementation Isolation**: Implementation targets (`-Impl`) cannot depend on other implementation targets.
-- Always depend on the `-API` target instead.
-- **Enforcement**: A pre-push hook runs `scripts/check_dependencies.swift` to verify this rule. The push will be rejected if violations are found.
+- Modules keep API and implementation code separated via `API/` and `Impl/` subdirectories within the same target.
+- Cross-module dependencies should only reference the module name (e.g., `import Network`, `import Common`).
 
 ## Getting Started
 
