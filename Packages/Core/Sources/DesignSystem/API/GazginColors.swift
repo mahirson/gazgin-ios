@@ -52,6 +52,8 @@ public enum GazginColors {
     // MARK: Others
     public static let white = Color.white
     public static let black = Color.black
+    public static let outlineSecondary = Color(hex: 0x0F172A)
+    public static let outlineSecondaryDark = Color(hex: 0xF1F5F9)
 }
 
 // MARK: - Color hex initializer

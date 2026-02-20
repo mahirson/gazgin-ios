@@ -22,6 +22,11 @@ public enum GazginTheme {
         scheme == .dark ? darkGazginColors : lightGazginColors
     }
 
+    /// Returns the button styles hierarchy for the given appearance.
+    public static func styles(for scheme: ColorScheme) -> GazginStyles {
+        gazginStyles(for: colors(for: scheme), isDark: scheme == .dark)
+    }
+
     /// Typography is the same for light and dark modes.
     public static let typeface: GazginTypographyScheme = gazginTypography
 
@@ -38,10 +43,18 @@ private struct GazginColorsKey: EnvironmentKey {
     static let defaultValue: GazginColorScheme = lightGazginColors
 }
 
+private struct GazginStylesKey: EnvironmentKey {
+    static let defaultValue: GazginStyles = gazginStyles(for: lightGazginColors, isDark: false)
+}
+
 public extension EnvironmentValues {
     var gazginColors: GazginColorScheme {
         get { self[GazginColorsKey.self] }
         set { self[GazginColorsKey.self] = newValue }
+    }
+    var gazginStyles: GazginStyles {
+        get { self[GazginStylesKey.self] }
+        set { self[GazginStylesKey.self] = newValue }
     }
 }
 
@@ -67,8 +80,10 @@ public struct GazginThemeModifier: ViewModifier {
 
     public func body(content: Content) -> some View {
         let colors = GazginTheme.colors(for: colorScheme)
+        let styles = GazginTheme.styles(for: colorScheme)
         content
             .environment(\.gazginColors, colors)
+            .environment(\.gazginStyles, styles)
             .font(GazginTheme.typeface.body.regular)
             .foregroundColor(colors.onBackground)
     }

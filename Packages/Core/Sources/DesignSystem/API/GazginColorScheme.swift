@@ -58,6 +58,7 @@ public struct GazginColorScheme: Sendable {
     public let onSecondary: Color
     public let onBackground: Color
     public let onSurface: Color
+    public let outlineSecondary: Color
     public let white: Color
     public let black: Color
 }
@@ -116,6 +117,7 @@ public let lightGazginColors = GazginColorScheme(
     onSecondary: GazginColors.black,
     onBackground: GazginColors.gray900,
     onSurface: GazginColors.gray900,
+    outlineSecondary: GazginColors.outlineSecondary,
     white: GazginColors.white,
     black: GazginColors.black
 )
@@ -174,6 +176,7 @@ public let darkGazginColors = GazginColorScheme(
     onSecondary: GazginColors.gray900,
     onBackground: GazginColors.gray100,
     onSurface: GazginColors.gray100,
+    outlineSecondary: GazginColors.outlineSecondaryDark,
     white: GazginColors.white,
     black: GazginColors.black
 )
