@@ -130,22 +130,22 @@ struct GazginButton_Previews: PreviewProvider {
     @ViewBuilder
     private static func stylesPreview(scheme: ColorScheme) -> some View {
         let styles = GazginTheme.styles(for: scheme)
-        
+
         VStack(spacing: 16) {
             Text("Primary")
                 .font(GazginTheme.typeface.h5.bold)
-            
+
             VStack(spacing: 10) {
                 GazginButton(text: "Primary Normal", style: styles.primary) {}
                 GazginButton(text: "Primary Disabled", style: styles.primary, isEnabled: false) {}
                 GazginButton(text: "Primary Loading", style: styles.primary, isLoading: true) {}
             }
-            
+
             Divider()
-            
+
             Text("Secondary")
                 .font(GazginTheme.typeface.h5.bold)
-            
+
             VStack(spacing: 10) {
                 GazginButton(text: "Secondary Normal", style: styles.secondary) {}
                 GazginButton(text: "Secondary Disabled", style: styles.secondary, isEnabled: false) {}
@@ -154,6 +154,6 @@ struct GazginButton_Previews: PreviewProvider {
         }
         .padding()
         .background(GazginTheme.colors(for: scheme).background)
-        .gazginTheme() 
+        .gazginTheme()
     }
 }
