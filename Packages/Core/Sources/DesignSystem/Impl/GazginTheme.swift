@@ -27,6 +27,9 @@ public enum GazginTheme {
 
     /// Dimension tokens are the same for light and dark modes.
     public static let dimens: GazginDimensions = gazginDimensions
+
+    /// Reusable icons mapped to system symbols.
+    public static let icons: GazginIcons = gazginIcons
 }
 
 // MARK: - Environment Key
