@@ -34,7 +34,7 @@ public enum GazginTheme {
     public static let dimens: GazginDimensions = gazginDimensions
 
     /// Reusable icons mapped to system symbols.
-    public static let icons: GazginIcons = gazginIcons
+    public static let icons: GazginIcons = gazginIcons()
 }
 
 // MARK: - Environment Key
