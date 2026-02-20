@@ -107,7 +107,6 @@ public struct NameField: View {
 
 // ──────────────────────────────────────────────
 
-
 #Preview("NameField States") {
     @Previewable @State var text = ""
     VStack(spacing: 16) {

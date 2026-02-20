@@ -13,9 +13,9 @@ public struct SearchField: View {
     @Binding private var value: String
     private let placeholder: String
     private let enabled: Bool
-    
+
     @FocusState private var isFocused: Bool
-    
+
     public init(
         value: Binding<String>,
         placeholder: String = "Search",
@@ -25,10 +25,10 @@ public struct SearchField: View {
         self.placeholder = placeholder
         self.enabled = enabled
     }
-    
+
     public var body: some View {
         let showClearIcon = !value.isEmpty || isFocused
-        
+
         BaseInputField(
             value: $value,
             fieldType: .base,

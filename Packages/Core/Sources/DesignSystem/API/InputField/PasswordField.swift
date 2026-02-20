@@ -125,7 +125,6 @@ public struct PasswordField: View {
 
 // ──────────────────────────────────────────────
 
-
 #Preview("PasswordField States") {
     @Previewable @State var text = ""
     VStack(spacing: 16) {

@@ -71,7 +71,6 @@ public struct TextArea: View {
 
 // ──────────────────────────────────────────────
 
-
 #Preview("TextArea States") {
     @Previewable @State var text = ""
     VStack(spacing: 16) {
