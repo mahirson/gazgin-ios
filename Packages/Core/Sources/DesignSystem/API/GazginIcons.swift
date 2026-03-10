@@ -119,6 +119,7 @@ public struct GazginIcons: Sendable {
 
     public let call: IconStyleVariant
     public let discovery: IconStyleVariant
+    public let home: IconStyleVariant
     public let eye: IconStyleVariant
     public let eyeAlt: IconStyleVariant
     public let globeAlt: IconStyleVariant
@@ -237,6 +238,10 @@ public func gazginIcons() -> GazginIcons {
         discovery: IconStyleVariant(
             normal: Image("ic_discovery", bundle: .module),
             filled: Image("ic_discovery_filled", bundle: .module)
+        ),
+        home: IconStyleVariant(
+            normal: Image("ic_home", bundle: .module),
+            filled: Image("ic_home_filled", bundle: .module)
         ),
         eye: IconStyleVariant(
             normal: Image("ic_eye", bundle: .module),
