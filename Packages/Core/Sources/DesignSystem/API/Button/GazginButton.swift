@@ -136,9 +136,9 @@ struct GazginButton_Previews: PreviewProvider {
                 .font(GazginTheme.typeface.h5.bold)
 
             VStack(spacing: 10) {
-                GazginButton(text: "Primary Normal", style: styles.primary) {}
-                GazginButton(text: "Primary Disabled", style: styles.primary, isEnabled: false) {}
-                GazginButton(text: "Primary Loading", style: styles.primary, isLoading: true) {}
+                GazginButton(text: "Primary Normal", style: styles.button.primary) {}
+                GazginButton(text: "Primary Disabled", style: styles.button.primary, isEnabled: false) {}
+                GazginButton(text: "Primary Loading", style: styles.button.primary, isLoading: true) {}
             }
 
             Divider()
@@ -147,9 +147,9 @@ struct GazginButton_Previews: PreviewProvider {
                 .font(GazginTheme.typeface.h5.bold)
 
             VStack(spacing: 10) {
-                GazginButton(text: "Secondary Normal", style: styles.secondary) {}
-                GazginButton(text: "Secondary Disabled", style: styles.secondary, isEnabled: false) {}
-                GazginButton(text: "Secondary Loading", style: styles.secondary, isLoading: true) {}
+                GazginButton(text: "Secondary Normal", style: styles.button.secondary) {}
+                GazginButton(text: "Secondary Disabled", style: styles.button.secondary, isEnabled: false) {}
+                GazginButton(text: "Secondary Loading", style: styles.button.secondary, isLoading: true) {}
             }
         }
         .padding()
