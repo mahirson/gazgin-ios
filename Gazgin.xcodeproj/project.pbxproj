@@ -64,6 +64,7 @@
 				AA00000AAAAA000A0000000A /* Database in Frameworks */,
 				AA00000BAAAA000B0000000B /* Repos in Frameworks */,
 				AA00000CAAAA000C0000000C /* DTO in Frameworks */,
+				AA00000DAAAA000D0000000D /* Welcome in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -136,6 +137,7 @@
 				BB00000ABBBB000A0000000A /* Database */,
 				BB00000BBBBB000B0000000B /* Repos */,
 				BB00000CBBBB000C0000000C /* DTO */,
+				BB00000DBBBB000D0000000D /* Welcome */,
 			);
 			productName = Gazgin;
 			productReference = 84E0358E2F3EB29900B73816 /* Gazgin.app */;
@@ -676,6 +678,10 @@
 		BB00000CBBBB000C0000000C /* DTO */ = {
 			isa = XCSwiftPackageProductDependency;
 			productName = DTO;
+		};
+		BB00000DBBBB000D0000000D /* Welcome */ = {
+			isa = XCSwiftPackageProductDependency;
+			productName = Welcome;
 		};
 /* End XCSwiftPackageProductDependency section */
 	};

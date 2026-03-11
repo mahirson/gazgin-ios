@@ -9,6 +9,10 @@ extension Container {
     public var profileNavigation: Factory<FeatureEntry?> {
         self { nil }
     }
+
+    public var welcomeNavigation: Factory<FeatureEntry?> {
+        self { nil }
+    }
 }
 
 /// Re-export Factory for consumers.

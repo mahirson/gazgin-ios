@@ -8,6 +8,7 @@ let package = Package(
     products: [
         .library(name: "Home", targets: ["Home"]),
         .library(name: "Profile", targets: ["Profile"]),
+        .library(name: "Welcome", targets: ["Welcome"]),
     ],
     dependencies: [
         .package(path: "../Core"),
@@ -33,5 +34,15 @@ let package = Package(
             .product(name: "Navigation", package: "Core"),
             .product(name: "Repos", package: "Domain"),
         ], path: "Sources/Profile"),
+
+        // Welcome
+        .target(name: "Welcome", dependencies: [
+            .product(name: "DesignSystem", package: "Core"),
+            .product(name: "Common", package: "Core"),
+            .product(name: "Analytics", package: "Core"),
+            .product(name: "DI", package: "Core"),
+            .product(name: "Navigation", package: "Core"),
+            .product(name: "Repos", package: "Domain"),
+        ], path: "Sources/Welcome"),
     ]
 )
