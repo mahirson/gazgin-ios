@@ -9,10 +9,6 @@ import Factory
 
 @main
 struct GazginApp: App {
-    @Injected(\.homeNavigation) private var homeNavigation
-    @Injected(\.profileNavigation) private var profileNavigation
-    @Injected(\.welcomeNavigation) private var welcomeNavigation
-
     init() {
         DISetup.configure()
         WelcomeFeatureEntry.register()
@@ -22,18 +18,18 @@ struct GazginApp: App {
 
     var body: some Scene {
         WindowGroup {
-            if let welcomeView = welcomeNavigation?.makeView() {
+            if let welcomeView = Container.shared.welcomeNavigation()?.makeView() {
                 welcomeView
             } else {
                 TabView {
-                    if let homeView = homeNavigation?.makeView() {
+                    if let homeView = Container.shared.homeNavigation()?.makeView() {
                         homeView
                             .tabItem {
                                 Label("Home", systemImage: "house.fill")
                             }
                     }
 
-                    if let profileView = profileNavigation?.makeView() {
+                    if let profileView = Container.shared.profileNavigation()?.makeView() {
                         profileView
                             .tabItem {
                                 Label("Profile", systemImage: "person.fill")

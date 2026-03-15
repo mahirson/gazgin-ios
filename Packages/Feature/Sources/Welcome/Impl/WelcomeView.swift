@@ -36,21 +36,8 @@ public struct WelcomeView: View {
             )
         ]
 
-        ZStack {
-            TabView(selection: Binding(
-                get: { state.currentPage },
-                set: { onIntent(.onPageChanged($0)) }
-            )) {
-                ForEach(0..<pageData.count, id: \.self) { index in
-                    WelcomePage(data: pageData[index])
-                        .tag(index)
-                }
-            }
-            .tabViewStyle(.page(indexDisplayMode: .never))
-            .ignoresSafeArea()
-
-            VStack {
-                // Top Header
+        VStack {
+            // Top Header
                 HStack {
                     Spacer()
                     Button {
@@ -99,8 +86,20 @@ public struct WelcomeView: View {
                 }
                 .padding(.horizontal, 24)
                 .padding(.bottom, 32)
-            }
         }
+        .background(
+            TabView(selection: Binding(
+                get: { state.currentPage },
+                set: { onIntent(.onPageChanged($0)) }
+            )) {
+                ForEach(0..<pageData.count, id: \.self) { index in
+                    WelcomePage(data: pageData[index])
+                        .tag(index)
+                }
+            }
+            .tabViewStyle(.page(indexDisplayMode: .never))
+            .ignoresSafeArea()
+        )
         .gazginTheme()
     }
 }
@@ -111,6 +110,7 @@ private struct WelcomePage: View {
     var body: some View {
         ZStack {
             data.primaryColor
+                .ignoresSafeArea()
 
             VStack {
                 Spacer()
