@@ -47,9 +47,9 @@ public struct LoginView: View {
                 }
                 .padding(.horizontal, 24)
                 .padding(.top, 16)
-                
+
                 Spacer()
-                
+
                 // Bottom Sheet Container
                 VStack(spacing: 0) {
                     Text(String(localized: "login_title", defaultValue: "Unlock The Ultimate Travel Experience"))
@@ -112,7 +112,7 @@ public struct LoginView: View {
 private struct RoundedCornerShape: Shape {
     var topStart: CGFloat
     var topEnd: CGFloat
-    
+
     func path(in rect: CGRect) -> Path {
         let path = UIBezierPath(
             roundedRect: rect,
@@ -143,7 +143,7 @@ private struct SocialLoginButton: View {
                     .foregroundColor(GazginColors.black)
 
                 Spacer()
-                
+
                 // Invisible spacer to balance icon
                 Spacer().frame(width: 24)
             }
