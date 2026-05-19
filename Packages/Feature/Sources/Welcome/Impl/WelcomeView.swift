@@ -1,5 +1,7 @@
 import SwiftUI
 import DesignSystem
+import DI
+import Factory
 
 private struct WelcomePageData: Equatable {
     let title: String
@@ -11,8 +13,11 @@ public struct WelcomeView: View {
     @State private var viewModel = WelcomeViewModel()
     @Environment(\.gazginColors) private var colors
     @Environment(\.gazginStyles) private var styles
+    @State private var navigateToLogin = false
 
-    public init() {}
+    public init() {
+        UIScrollView.appearance().contentInsetAdjustmentBehavior = .never
+    }
 
     public var body: some View {
         let state = viewModel.state
@@ -36,8 +41,20 @@ public struct WelcomeView: View {
             )
         ]
 
-        VStack {
-            // Top Header
+        TabView(selection: Binding(
+            get: { state.currentPage },
+            set: { onIntent(.onPageChanged($0)) }
+        )) {
+            ForEach(0..<pageData.count, id: \.self) { index in
+                WelcomePage(data: pageData[index])
+                    .tag(index)
+            }
+        }
+        .tabViewStyle(.page(indexDisplayMode: .never))
+        .ignoresSafeArea()
+        .overlay {
+            VStack {
+                // Top Header
                 HStack {
                     Spacer()
                     Button {
@@ -52,8 +69,8 @@ public struct WelcomeView: View {
                             .clipShape(RoundedRectangle(cornerRadius: 20))
                     }
                 }
-                .padding(.top, 48)
                 .padding(.horizontal, 24)
+                .padding(.top, 56)
 
                 Spacer()
 
@@ -78,29 +95,24 @@ public struct WelcomeView: View {
                             if state.currentPage < 2 {
                                 onIntent(.onNextPage)
                             } else {
-                                // TODO: Navigate to Home
+                                navigateToLogin = true
                             }
                         }
                     )
                     .frame(maxWidth: .infinity)
                 }
                 .padding(.horizontal, 24)
-                .padding(.bottom, 32)
-        }
-        .background(
-            TabView(selection: Binding(
-                get: { state.currentPage },
-                set: { onIntent(.onPageChanged($0)) }
-            )) {
-                ForEach(0..<pageData.count, id: \.self) { index in
-                    WelcomePage(data: pageData[index])
-                        .tag(index)
-                }
+                .padding(.bottom, 16) // Optional: small aesthetic padding from bottom safe area
             }
-            .tabViewStyle(.page(indexDisplayMode: .never))
-            .ignoresSafeArea()
-        )
+        }
+        .navigationBarHidden(true)
         .gazginTheme()
+        .navigationDestination(isPresented: $navigateToLogin) {
+            if let loginView = Container.shared.loginNavigation()?.makeView() {
+                loginView
+                    .toolbar(.hidden, for: .navigationBar)
+            }
+        }
     }
 }
 
@@ -126,7 +138,7 @@ private struct WelcomePage: View {
                         .multilineTextAlignment(.center)
                 }
                 .padding(.horizontal, 24)
-                .padding(.bottom, 180) // Height to avoid button overlap
+                .padding(.bottom, 180)
             }
         }
     }

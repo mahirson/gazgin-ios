@@ -13,6 +13,10 @@ extension Container {
     public var welcomeNavigation: Factory<FeatureEntry?> {
         self { nil }
     }
+
+    public var loginNavigation: Factory<FeatureEntry?> {
+        self { nil }
+    }
 }
 
 /// Re-export Factory for consumers.

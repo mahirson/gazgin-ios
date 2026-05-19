@@ -3,6 +3,7 @@ import SwiftData
 import Home
 import Profile
 import Welcome
+import Login
 import DI
 import Navigation
 import Factory
@@ -14,12 +15,17 @@ struct GazginApp: App {
         WelcomeFeatureEntry.register()
         HomeFeatureEntry.register()
         ProfileFeatureEntry.register()
+        LoginFeatureEntry.register()
     }
 
     var body: some Scene {
         WindowGroup {
             if let welcomeView = Container.shared.welcomeNavigation()?.makeView() {
-                welcomeView
+                NavigationStack {
+                    welcomeView
+                        .ignoresSafeArea()
+                        .toolbar(.hidden, for: .navigationBar)
+                }
             } else {
                 TabView {
                     if let homeView = Container.shared.homeNavigation()?.makeView() {
